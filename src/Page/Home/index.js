@@ -1,27 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import MealCard from "../../Component/MealCard";
 import axios from "axios";
 import SearchMeal from "../../Component/SearchMeal";
+import { StoreMealDetails } from "../../Store/Index.js"
 
 const Home = () => {
-  let [meal, setMeal] = useState([]);
+
+  const { meals } = useSelector((state) => state.meal);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
       .get("https://www.themealdb.com/api/json/v1/1/search.php?f=b")
       .then((response) => {
-        console.log(response.data.meals);
-        setMeal(response.data.meals);
+        dispatch(StoreMealDetails(response.data.meals));
       })
       .catch((err) => console.log(err));
-  }, []);
+  },[]);
 
   return (
     <>
       <h1>Grap your Meal</h1>
-      <SearchMeal className="MealSearchBar"/>
+      <SearchMeal className="MealSearchBar" />
       <div className="MealContainer">
-        {meal.map((e) => (
+        {meals.map((e) => (
           <MealCard
             id={e.idMeal}
             name={e.strMeal}

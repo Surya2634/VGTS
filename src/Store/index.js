@@ -1,20 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit'
 
-const mealSlice = createSlice({
-  name: "meal",
-  initialState: { meal: [] },
+const initialState = {
+  meals : [],
+}
+
+export const mealSlice = createSlice({
+  name: 'MealDetails',
+  initialState,
   reducers: {
-    getMealDetails: (state, action) => {
-      const mealId = action.payload;
-      state.meal = mealId;
+    StoreMealDetails: (state, action) => {
+      state.meals = action.payload;
     },
   },
-});
+})
 
-export const { GetMeal } = mealSlice.actions;
 
-export default mealSlice.reducer;
+export const { StoreMealDetails } = mealSlice.actions
 
-export const MealDetails = (state) => {
-  return state.meal;
-};
+export default mealSlice.reducer
