@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import MealCard from "../Component/MealCard";
 import axios from "axios";
 import "../Style/Home.css";
+import SearchMeal from "../Component/SearchMeal";
 
 const Home = () => {
   let [meal, setMeal] = useState([]);
@@ -13,14 +14,13 @@ const Home = () => {
         console.log(response.data.meals);
         setMeal(response.data.meals);
       })
-      .catch((err) => {
-        console.log(err);
-      });
+      .catch((err) => console.log(err));
   }, []);
 
   return (
     <>
       <h1>Grap your Meal</h1>
+      <SearchMeal />
       <div className="MealContainer">
         {meal.map((e) => (
           <MealCard
