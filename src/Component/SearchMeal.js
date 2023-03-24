@@ -27,11 +27,12 @@ const SearchMeal = () => {
         axios
           .get(`https://www.themealdb.com/api/json/v1/1/search.php?s=${search}`)
           .then((response) => {
-            if (response.data) {
+            if (response.data.meals) {
+              setIsSearchData(true);
               setMeal(response.data.meals);
               dispatch(StoreMealDetails(response.data.meals));
             } else {
-              setIsSearchData(false);
+              setIsSearchData(!isSearchData);
             }
           })
           .catch((err) => console.log(err));
