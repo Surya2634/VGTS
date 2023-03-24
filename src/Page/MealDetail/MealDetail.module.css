@@ -1,0 +1,50 @@
+.MealDetailContainer{
+    border: 1px solid black;
+    border-radius: 5px; 
+    margin: auto;
+    padding: 3%;
+    width: 80%;
+    display: flex;
+    gap: 50px;
+    align-items: center;
+}
+
+.MealImg{
+    width: 300px;
+    border-radius: 10px;
+}
+
+.MealDescription{
+    width: 100%;
+}
+
+.MealDescription> p{
+    text-align: left;
+    margin:2% 0 0 0;
+}
+
+.MealDescription> h1{
+    text-align: left;
+    margin:0;
+}
+
+
+.mealInstruction{
+    text-align: justify; 
+}
+
+.ChekoutButton{
+    border: .5px solid gray;
+    background-color:white;
+    aspect-ratio: 10/1;
+    padding: 1%;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 2% 0 0 0;
+}
+
+.ChekoutButton:hover{
+    background-color:gray;
+    color:white;
+}
+
