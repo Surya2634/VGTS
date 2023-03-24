@@ -24,7 +24,7 @@ const ConfirmationPage = () => {
     <>
       <div>
         <h1>Order Details</h1>
-        <div>
+        {/* <div>
           <img src={meal.strMealThumb} alt="Meal" className={styles.MealImg} />
         </div>
         <p>{meal.idMeal}</p>
@@ -33,7 +33,24 @@ const ConfirmationPage = () => {
         <p>{users.name}</p>
         <p>{users.address}</p>
         <p>{users.contact}</p>
-        <p>{users.email}</p>
+        <p>{users.email}</p> */}
+        <div className={styles.card}>
+          <div>
+            <img src={meal.strMealThumb} alt="ProductImage" />
+          </div>
+          <div className={styles.details}>
+            <h2>Item :{meal.strMeal}</h2>
+            <span>Shipping Details </span>
+            <span>{users.name}</span>
+            <span>{users.address}</span>
+            <span>{users.contact}</span>
+            <span>{users.email}</span>
+            {/* <p class={styles.price}>$19.99</p> */}
+
+            <button className={styles.done}>Purchased</button>
+            <button>Back to Home</button>
+          </div>
+        </div>
       </div>
     </>
   );
