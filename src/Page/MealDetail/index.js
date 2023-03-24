@@ -6,11 +6,11 @@ import { useLocation } from "react-router-dom";
 const MealDetail = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { meal } = useSelector((state) => state.meal);
-  console.log(meal);
+  const { meals } = useSelector((state) => state.meal);
+  console.log(meals);
 
   const navigateCheckout = () => {
-    navigate("/checkout", { state: { id: meal.id } });
+    navigate("/checkout", { state: { id: meals.id } });
   };
 
   return (
