@@ -60,7 +60,7 @@ const SearchMeal = () => {
             />
           ))
         ) : (
-          <p>The Meal you are Searching for is not found</p>
+          <p>Sorry, the Meal you are Searching for is not found...</p>
         )}
       </div>
     </>
