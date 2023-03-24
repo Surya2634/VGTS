@@ -1,8 +1,19 @@
-import { configureStore } from "@reduxjs/toolkit";
-import mealReducer from "./Index.js";
+import { createSlice } from "@reduxjs/toolkit";
 
-export const MealStore = configureStore({
-  reducer: {
-    meal: mealReducer,
+const initialState = {
+  meals: [],
+};
+
+export const mealSlice = createSlice({
+  name: "MealDetails",
+  initialState,
+  reducers: {
+    StoreMealDetails: (state, action) => {
+      state.meals = action.payload;
+    },
   },
 });
+
+export const { StoreMealDetails } = mealSlice.actions;
+
+export default mealSlice.reducer;

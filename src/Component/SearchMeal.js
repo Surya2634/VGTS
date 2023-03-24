@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { Input } from "antd";
 import MealCard from "./MealCard.js";
 import axios from "axios";
-import { StoreMealDetails } from "../Store/Index.js";
+import { StoreMealDetails } from "../Store/MealStore";
 
 const { Search } = Input;
 
@@ -39,7 +39,7 @@ const SearchMeal = () => {
       }, 100);
       return () => clearTimeout(onSearch);
     }
-  }, [search]);
+  }, [search, meal, isSearchData, dispatch]);
 
   return (
     <>
