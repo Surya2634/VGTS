@@ -1,6 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Card } from "antd";
+import styles from "./MealCard.module.css";
+
 const { Meta } = Card;
 
 const MealCard = (props) => {
@@ -14,7 +16,7 @@ const MealCard = (props) => {
     <div onClick={getDetail}>
       <Card
         hoverable
-        className="mealCard"
+        className={styles.mealCard}
         cover={
           <img
             alt="example"

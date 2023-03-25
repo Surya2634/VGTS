@@ -2,14 +2,18 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { StoreUserDetails } from "../../Store/UserStore.js";
 import { useNavigate, useLocation } from "react-router-dom";
+import Modal from "../../Component/Modal/Modal";
 import styles from "./Checkout.module.css";
+
 const Checkout = () => {
   const [user, setUser] = useState([
     { firstname: "", lastname: "", contact: "", email: "", address: "" },
   ]);
+  const [openModal, setOpenModal] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  console.log({ openModal });
 
   const handleChange = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -19,13 +23,16 @@ const Checkout = () => {
     navigate("/orderConfirmation", { state: { id: location.state.id } });
   };
 
+  const navigateHome = () => {
+    navigate("/home");
+  };
+
   const validateForm = (e) => {
     let isvalid = true;
 
     if ((user.contact + "").length !== 10) {
-      alert("Please, provide valid phone number");
       isvalid = false;
-      return isvalid;
+      setOpenModal(true);
     }
 
     return isvalid;
@@ -40,7 +47,7 @@ const Checkout = () => {
   };
 
   return (
-    <>
+    <section id="userForm">
       <div className={styles.container}>
         <h1>Please Enter your Shipping details</h1>
 
@@ -53,6 +60,7 @@ const Checkout = () => {
             placeholder="Your name..."
             onChange={handleChange}
             className={styles.input}
+            required
           />
 
           <label for="lname">Last Name</label>
@@ -63,6 +71,7 @@ const Checkout = () => {
             placeholder="Your last name.."
             onChange={handleChange}
             className={styles.input}
+            required
           />
           <label>Contact No</label>
           <input
@@ -89,7 +98,11 @@ const Checkout = () => {
             required
           />
           <div className={styles.button}>
-            <button type="submit" className={styles.cancel}>
+            <button
+              type="submit"
+              className={styles.cancel}
+              onClick={navigateHome}
+            >
               Cancel
             </button>
             <button type="submit" className={styles.Purchase}>
@@ -98,21 +111,17 @@ const Checkout = () => {
           </div>
         </form>
       </div>
-
-      {/* <form onSubmit={handleSubmit}>
-        <label>Name</label>
-
-        <input type="text" name="name" onChange={handleChange} required />
-
-        <label>Contact No</label>
-        <input type="number" name="contact" onChange={handleChange} required />
-        <label>Email</label>
-        <input type="text" name="email" onChange={handleChange} required />
-        <label>Address</label>
-        <textarea type="text" name="address" onChange={handleChange} required />
-        <button type="submit">Purchase</button>
-      </form> */}
-    </>
+      {openModal && (
+        <Modal>
+          <div>
+            <p>Please, provide valid phone number</p>
+            <button onClick={() => setOpenModal((prevData) => !prevData)}>
+              Ok
+            </button>
+          </div>
+        </Modal>
+      )}
+    </section>
   );
 };
 

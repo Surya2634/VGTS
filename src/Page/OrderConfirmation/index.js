@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./OrderConfirmation.module.css";
 
@@ -7,6 +7,7 @@ const ConfirmationPage = () => {
   const [meal, setMeal] = useState({});
   const [users, setUser] = useState({});
   const location = useLocation();
+  const navigate = useNavigate();
   const { meals } = useSelector((state) => state.meal);
   const { user } = useSelector((state) => state.user);
 
@@ -20,20 +21,14 @@ const ConfirmationPage = () => {
     }
   }, [meals, location.state.id, user]);
 
+  const navigateHome = () => {
+    navigate("/home");
+  };
+
   return (
     <>
       <div>
         <h1>Order Details</h1>
-        {/* <div>
-          <img src={meal.strMealThumb} alt="Meal" className={styles.MealImg} />
-        </div>
-        <p>{meal.idMeal}</p>
-        <h2>{meal.strMeal}</h2>
-        <h1>Shipping Details </h1>
-        <p>{users.name}</p>
-        <p>{users.address}</p>
-        <p>{users.contact}</p>
-        <p>{users.email}</p> */}
         <div className={styles.card}>
           <div>
             <img src={meal.strMealThumb} alt="ProductImage" />
@@ -45,10 +40,9 @@ const ConfirmationPage = () => {
             <span>{users.address}</span>
             <span>{users.contact}</span>
             <span>{users.email}</span>
-            {/* <p class={styles.price}>$19.99</p> */}
 
             <button className={styles.done}>Purchased</button>
-            <button>Back to Home</button>
+            <button onClick={navigateHome}>Back to Home</button>
           </div>
         </div>
       </div>

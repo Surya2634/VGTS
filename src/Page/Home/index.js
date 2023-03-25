@@ -1,11 +1,12 @@
 import React from "react";
-import SearchMeal from "../../Component/SearchMeal";
+import SearchMeal from "../../Component/SearchMeal/SearchMeal";
+import styles from "./Home.module.css";
 
 const Home = () => {
   return (
     <>
       <h1>Grap your Meal</h1>
-      <SearchMeal className="MealSearchBar" />
+      <SearchMeal className={styles.mealSearchBar} />
     </>
   );
 };

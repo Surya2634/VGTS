@@ -1,0 +1,8 @@
+.mealCard {
+  aspect-ratio: 0.5/.1;
+  padding: 5%;
+  margin: 5% 0 0 11%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

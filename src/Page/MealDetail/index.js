@@ -2,16 +2,21 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useSelector } from "react-redux";
 import styles from "./MealDetail.module.css";
+import Modal from "../../Component/Modal/Modal";
 
 const MealDetail = () => {
   const [meal, setMeal] = useState({});
   const location = useLocation();
   const navigate = useNavigate();
   const { meals } = useSelector((state) => state.meal);
-  console.log(meals);
+  const [openModal, setOpenModal] = useState(false);
 
   const navigateCheckout = () => {
-    navigate("/checkout", { state: { id: meal.idMeal } });
+    if (meal.idMeal) {
+      navigate("/checkout", { state: { id: meal.idMeal } });
+    } else {
+      setOpenModal(true);
+    }
   };
 
   useEffect(() => {
@@ -40,6 +45,14 @@ const MealDetail = () => {
           </button>
         </div>
       </div>
+      {openModal && (
+        <Modal>
+          <div>Sorry, There is no ID for this Meal, pick something else...</div>
+          <button onClick={() => setOpenModal((prevData) => !prevData)}>
+            Ok
+          </button>
+        </Modal>
+      )}
     </>
   );
 };
