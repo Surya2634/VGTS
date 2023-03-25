@@ -1,49 +1,72 @@
-.container{
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    justify-content:center;
-    width:100%;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
-form{
-    background-color: whitesmoke;
-    padding: 30px;
-    width:70%;
+form {
+  background-color: whitesmoke;
+  padding: 30px;
+  width: 70%;
 }
-.input, select {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  .button{
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top:50px;
-    width:100%;
-    gap:   15px;
-  }
-  .Purchase,.cancel {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10%;
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  .cancel{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 10%;
-    background-color: white;
-    color:black
-  }
+.input,
+select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 50px;
+  width: 100%;
+  gap: 15px;
+}
+.Purchase,
+.cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  background-color: #4caf50;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.cancel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 10%;
+  background-color: white;
+  color: black;
+}
+
+.ModalContainer{
+ padding: 10%;
+}
+
+.ModalContainer > p {
+  font-size: 17px;
+}
+
+.ModalContainer > button {
+  display: grid;
+  place-items: center;
+  width: 15%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5% 0 0 40%;
+}

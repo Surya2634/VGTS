@@ -1,50 +1,69 @@
-.MealDetailContainer{
-    border-radius: 5px; 
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    margin: auto;
-    padding: 3%;
-    width: 70%;
-    display: flex;
-    gap: 50px;
-    align-items: center;
+.MealDetailContainer {
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin: auto;
+  padding: 3%;
+  width: 70%;
+  display: flex;
+  gap: 50px;
+  align-items: center;
 }
 
-.MealImg{
-    width: 300px;
-    border-radius: 10px;
+.MealImg {
+  width: 300px;
+  border-radius: 10px;
 }
 
-.MealDescription{
-    width: 100%;
+.MealDescription {
+  width: 100%;
 }
 
-.MealDescription> p{
-    text-align: left;
-    margin:2% 0 0 0;
+.MealDescription > p {
+  text-align: left;
+  margin: 2% 0 0 0;
 }
 
-.MealDescription> h1{
-    text-align: left;
-    margin:0;
+.MealDescription > h1 {
+  text-align: left;
+  margin: 0;
 }
 
-
-.mealInstruction{
-    text-align: justify; 
+.mealInstruction {
+  text-align: justify;
 }
 
-.ChekoutButton{
-    border: .5px solid gray;
-    background-color:white;
-    aspect-ratio: 10/1;
-    padding: 1%;
-    border-radius: 25px;
-    cursor: pointer;
-    margin: 2% 0 0 0;
+.ChekoutButton {
+  border: 0.5px solid gray;
+  background-color: white;
+  aspect-ratio: 10/1;
+  padding: 1%;
+  border-radius: 25px;
+  cursor: pointer;
+  margin: 2% 0 0 0;
 }
 
-.ChekoutButton:hover{
-    background-color:gray;
-    color:white;
+.ChekoutButton:hover {
+  background-color: gray;
+  color: white;
 }
 
+.ModalContainer {
+  padding: 10%;
+}
+
+.ModalContainer > p {
+  font-size: 17px;
+}
+
+.ModalContainer > button {
+  display: grid;
+  place-items: center;
+  width: 15%;
+  background-color: #4caf50;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin: 5% 0 0 40%;
+}

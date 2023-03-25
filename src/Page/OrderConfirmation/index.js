@@ -42,7 +42,9 @@ const ConfirmationPage = () => {
             <span>{users.email}</span>
 
             <button className={styles.done}>Purchased</button>
-            <button onClick={navigateHome}>Back to Home</button>
+            <button className={styles.homeButton} onClick={navigateHome}>
+              Back to Home
+            </button>
           </div>
         </div>
       </div>

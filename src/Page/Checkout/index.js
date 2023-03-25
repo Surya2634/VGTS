@@ -113,8 +113,8 @@ const Checkout = () => {
       </div>
       {openModal && (
         <Modal>
-          <div>
-            <p>Please, provide valid phone number</p>
+          <div className={styles.ModalContainer}>
+            <p>Please, Provide a valid phone number</p>
             <button onClick={() => setOpenModal((prevData) => !prevData)}>
               Ok
             </button>

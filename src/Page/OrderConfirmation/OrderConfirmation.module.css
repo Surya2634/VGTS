@@ -41,3 +41,7 @@
   width: 30%;
   color: white !important;
 }
+
+.homeButton{
+  cursor: pointer;
+}

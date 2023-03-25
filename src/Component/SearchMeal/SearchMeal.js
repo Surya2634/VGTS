@@ -26,15 +26,16 @@ const SearchMeal = () => {
   const debouncedSearchText = useDebounce(search, 1000);
   const [isSearchData, setIsSearchData] = useState(true);
   const dispatch = useDispatch();
+  console.log({ isLoading });
 
   useEffect(() => {
-    setIsLoading(true);
+    setIsLoading(false);
     if (!debouncedSearchText) {
       getMeal().then((response) => {
         setIsSearchData(true);
         setMeal(response.meals);
+        setIsLoading(true);
         dispatch(StoreMealDetails(response.meals));
-        setIsLoading(false);
       });
     } else {
       getMealBySearch({ searchText: debouncedSearchText }).then((response) => {
@@ -45,7 +46,7 @@ const SearchMeal = () => {
         } else {
           setIsSearchData(!isSearchData);
         }
-        setIsLoading(false);
+        setIsLoading(true);
       });
     }
   }, [debouncedSearchText]);

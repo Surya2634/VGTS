@@ -47,10 +47,12 @@ const MealDetail = () => {
       </div>
       {openModal && (
         <Modal>
-          <div>Sorry, There is no ID for this Meal, pick something else...</div>
-          <button onClick={() => setOpenModal((prevData) => !prevData)}>
-            Ok
-          </button>
+          <div className={styles.ModalContainer}>
+            <p>Sorry, There is no ID for this Meal, pick something else...</p>
+            <button onClick={() => setOpenModal((prevData) => !prevData)}>
+              Ok
+            </button>
+          </div>
         </Modal>
       )}
     </>
